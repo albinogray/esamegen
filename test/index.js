@@ -1,5 +1,5 @@
 var should = require('chai').should();
-var expect = require('chai').expect();
+var expect = require('chai').expect;
 
 var esamagen = require('../index');
 var counter = esamagen.counter;
@@ -53,8 +53,7 @@ describe('#counter', function() {
     var fn = function() {
       counter({init: true, min: 5, max: 4});
     }
-    //expect(fn).to.throw(Error);
-    //expect(fn).to.throw("min cannot be greater than max");
+    expect(fn).to.throw(Error);
   });
 
 
@@ -115,14 +114,14 @@ describe('#IP address counter - ', function() {
     var fn = function() {
       counterIpAddress({init: true, min: '0.0.0'});
     };
-    //expect(fn).to.throw(Error);
+    expect(fn).to.throw();
   });
 
   it('IP address counter max value should be IP address', function() {
     var fn = function() {
       counterIpAddress({init: true, max: '0.0.0'})
     };
-    //expect(fn).to.throw(Error);
+    expect(fn).to.throw(Error);
 
   });
 
@@ -130,7 +129,7 @@ describe('#IP address counter - ', function() {
     var fn = function() {
       counterIpAddress({init: true, min: '0.0.0.5', max: '0.0.0.4'});
     }
-    //expect(fn).to.throw(Error);
+    expect(fn).to.throw(Error);
   });
 
 
